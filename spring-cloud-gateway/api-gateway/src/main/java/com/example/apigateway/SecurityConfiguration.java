@@ -19,12 +19,12 @@ public class SecurityConfiguration {
     public SecurityWebFilterChain securityWebFilterChain(ServerHttpSecurity http) {
         // @formatter:off
         http
-            .authorizeExchange()
+                .authorizeExchange()
                 .anyExchange().authenticated()
                 .and()
-            .oauth2Login()
+                .oauth2Login()
                 .and()
-            .oauth2ResourceServer()
+                .oauth2ResourceServer()
                 .jwt();
         return http.build();
         // @formatter:on
