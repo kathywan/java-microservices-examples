@@ -1,0 +1,23 @@
+spring:
+  application:
+    name: gateway
+#  cloud:
+#    gateway:
+#      routes:
+#        - id: car-service
+#          uri: lb://car-service
+#          predicates:
+#            - Path=/cars/**
+#          filters:
+#            - name: Hystrix
+#              args:
+#                name: carsFallback
+#                fallbackUri: forward:/cars-fallback
+logging:
+  level:
+    root: WARN
+okta:
+  oauth2:
+    client-id: 0oa13lqp79I4oFPu74x6
+    client-secret: Jo1mW4YT-sETXW-Ei0GzxVMur7KPI-tFeTUeULJP
+    issuer: https://dev-323702.okta.com/oauth2/default

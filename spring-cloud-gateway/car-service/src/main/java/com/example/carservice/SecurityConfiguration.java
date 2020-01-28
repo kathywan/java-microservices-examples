@@ -1,29 +1,18 @@
 package com.example.carservice;
 
-import com.okta.spring.boot.oauth.Okta;
 import org.springframework.context.annotation.Bean;
-import org.springframework.security.config.annotation.method.configuration.EnableReactiveMethodSecurity;
-import org.springframework.security.config.annotation.web.reactive.EnableWebFluxSecurity;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.web.server.ServerHttpSecurity;
 import org.springframework.security.web.server.SecurityWebFilterChain;
 
-@EnableWebFluxSecurity
-@EnableReactiveMethodSecurity
+@Configuration
+//@Profile("development")
 public class SecurityConfiguration {
 
     @Bean
-    public SecurityWebFilterChain securityWebFilterChain(ServerHttpSecurity http) {
-        // @formatter:off
-        http
-            .authorizeExchange()
-                .anyExchange().authenticated()
-                .and()
-            .oauth2ResourceServer()
-                .jwt();
-
-        Okta.configureResourceServer401ResponseBody(http);
-
+    public SecurityWebFilterChain springSecurityFilterChain(ServerHttpSecurity http) {
+        http.authorizeExchange().anyExchange().permitAll();
         return http.build();
-        // @formatter:on
     }
+
 }
